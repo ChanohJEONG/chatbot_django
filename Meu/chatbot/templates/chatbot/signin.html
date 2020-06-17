@@ -1,0 +1,46 @@
+{% extends 'chatbot/common.html' %}
+{% block content %}
+
+<div>
+	<div class="single_slider  d-flex align-items-center slider_bg_1">
+		<div class="jumbotron signDiv" style="display: contents;">
+			<div class="container text-center">
+
+				<form class="signForm" method="post" action="/signin/"
+					style="margin-top: 10%; margin-bottom: 20%; margin-right: 15%; margin-left: 15%;">
+					{% csrf_token %}
+
+					<br><br><br>
+					<h2>로그인</h2>
+					{% if form.errors %}
+					<p>username or password not correct</p>
+					{% endif %}
+					<br></br>
+					<div class="form-group" style="color: aliceblue;">
+						<input type="text" class="form-control" id="user_id" name="user_id" placeholder="id">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" id="user_pw" name="user_pw"
+							onkeypress="caps_lock(event)" placeholder="Password">
+
+						<p id="capslock"
+							style="position: relative; border: 2px solid #831400; width: 300px; bottom: 0px; display: none">
+							&nbsp;<b>CapsLock</b> 키가 눌려있습니다.&nbsp;
+						</p>
+
+					</div>
+					<button class="btn btn-primary btn-block" id="signin">로그인</button>
+					<a href="/signup" class="btn btn-primary btn-block">회원가입</a>
+				</form>
+
+			</div>
+		</div>
+		<div class="scroll-to-top d-lg-none position-fixed ">
+			<a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"> <i
+					class="fa fa-chevron-up"></i>
+			</a>
+		</div>
+	</div>
+
+</div>
+{% endblock %}

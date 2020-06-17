@@ -1,0 +1,195 @@
+{% extends 'chatbot/common_chat.html' %}
+{% block content %}
+<div class="single_slider  d-flex align-items-center slider_bg_1" style="background-size: 100% 100%;">
+    <img src="/static/chatbot/img/cat1.png" style="position: absolute; bottom: 0px; right: 0%;">
+    <section id="demo" style="position: static;">
+        <div class="vertical-align">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 col-xs-offset-0">
+                        <div class="img-div" style=" margin-top: 50%;">
+                            <div class="img-div2"><img src="/static/chatbot/img/head.png" width="45rem" height="45rem">
+                            </div>
+                            <div class="img-div3"><img src="/static/chatbot/img/logo1.png" width="70rem" height="45rem">
+                            </div>
+                            <div class="img-button"><button onclick="window.location.reload()"
+                                    style="background-color: transparent; border: none;">
+                                    <img src="/static/chatbot/img/door4.png" width="35rem" height="35rem"></button>
+                            </div>
+                        </div>
+                        <div class="card no-border">
+                            <div id="chat" class="conv-form-wrapper">
+                                <form action="" method="get" class="hidden" onsubmit="return false">
+
+                                    <input type="text" data-conv-question="안녕하세요. 나는 상담을 해주는 고양이 MeU야."
+                                        data-no-answer="true">
+                                    <input type="text" data-conv-question="나는 고양이 학교에서 심리상담을 공부하고 지금은 취업 준비중이야."
+                                        data-no-answer="true">
+                                    <input type="text" data-conv-question="만나서 반가워!" data-no-answer="true">
+                                    <input type="text"
+                                        data-conv-question="나는 다른 사람 이야기 들어주는 것을 좋아하니깐 너의 생각이나 고민을 마음껏 이야기해도 되!"
+                                        data-no-answer="true">
+
+                                    <select name="multi[]" data-conv-question="어떤 이야기를 하고 싶어?">
+                                        <option value="연애">연애</option>
+                                        <option value="취업">취업</option>
+                                        <option value="친구">친구</option>
+                                    </select>
+
+                                    <div data-conv-fork="multi[]">
+                                        <div data-conv-case="연애">
+                                            <input type="text" data-conv-question="[연애]에 대해서 이야기 해보자!"
+                                                data-no-answer="true">
+                                            <input type="text" data-conv-question="연애는 참 어려운 것 같아."
+                                                data-no-answer="true">
+                                            <input type="text"
+                                                data-conv-question="서로 다른 사람이 함께 시간을 보내고 좋은 추억을 만드는게 행복할 일이지만 말이야."
+                                                data-no-answer="true">
+                                            <select data-conv-question="현재 연애는 잘 하고 있어?" name="dating-question">
+                                                <option value="응! 잘 하고있어!">응! 잘 하고있어!</option>
+                                                <option value="아니.. 잘 안되고 있어 ㅠㅠ">아니.. 잘 안되고 있어 ㅠㅠ</option>
+                                            </select>
+
+                                            <div data-conv-fork="dating-question">
+                                                <div data-conv-case="응! 잘 하고있어!">
+                                                    <input type="text" data-conv-question="다행이다!" data-no-answer="true">
+                                                    <input type="text" data-conv-question="지금처럼 즐겁게 연애했으면 좋겠어."
+                                                        data-no-answer="true">
+                                                    <input type="text"
+                                                        data-conv-question="다음번 만났을 때 새로운 데이트를 해보는 건 어떨까?ㅋㅋㅋ">
+                                                </div>
+                                                <div data-conv-case="아니.. 잘 안되고 있어 ㅠㅠ">
+                                                    <input type="text" data-conv-question="연애에 어려움이 있구나.. 어떤 점이 힘들어?">
+
+                                                    <select
+                                                        data-conv-question="응 지금은 힘들어도 {{member.nick_name}} 는 잘 해낼 수 있을거야!"
+                                                        name="dating-answer">
+                                                        <option value="고마웡!">고마웡!</option>
+
+                                                    </select>
+                                                    <div data-conv-fork="dating-answer">
+                                                        <div data-conv-case="고마웡!">
+                                                            <input type="text" data-conv-question="응! 오늘도 힘내~ 쓰담쓰담"
+                                                                data-no-answer="true">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div data-conv-case="취업">
+                                            <input type="text" data-conv-question="[취업]에 대해서 이야기 해보자!"
+                                                data-no-answer="true">
+                                            <input type="text" data-conv-question="요즘 취업하기 진짜 힘들지"
+                                                data-no-answer="true">
+                                            <input type="text" data-conv-question="나도 졸업하고 취업 준비중인데 쉽지 않네.."
+                                                data-no-answer="true">
+                                            <select data-conv-question="{{member.nick_name}}는 뭐가 제일 힘들어?"
+                                                name="job-answer">
+                                                <option value="꿈이 없어..!">꿈이 없어..!</option>
+                                                <option value="취업이 어렵네 ㅠㅠ">취업이 어렵네 ㅠㅠ</option>
+                                            </select>
+                                            <div data-conv-fork="job-answer">
+                                                <div data-conv-case="꿈이 없어..!">
+                                                    <input type="text" data-conv-question="꿈이 없으면 불안하지.."
+                                                        data-no-answer="true">
+                                                    <input type="text" data-conv-question="하지만 꿈은 거창하지 않아도 되!"
+                                                        data-no-answer="true">
+                                                    <input type="text" data-conv-question="너무 조급해하지 말고 조그마한 것부터 생각해보자!">
+
+                                                </div>
+                                                <div data-conv-case="취업이 어렵네 ㅠㅠ">
+                                                    <input type="text"
+                                                        data-conv-question="그치. 취업 준비하다 보면 안해도 되는 걱정까지 하게 되는 것 같아."
+                                                        data-no-answer="true">
+                                                    <input type="text"
+                                                        data-conv-question="그래도 {{member.nick_name}}!! 힘을 내!!"
+                                                        data-no-answer="true">
+                                                    <input type="text" data-conv-question="넌 잘 할 수 있어!">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div data-conv-case="친구">
+                                            <input type="text" data-conv-question="[친구]에 대해서 이야기 해보자!"
+                                                data-no-answer="true">
+                                            <input type="text"
+                                                data-conv-question="{{member.nick_name}}는 친구랑 무슨 고민이 있어?">
+
+                                            <input type="text" data-conv-question="그랬구나" data-no-answer="true">
+
+                                            <input type="text" talk="talk"
+                                                data-conv-question="이야기를 들려줘서 고마워! 이제 자유롭게 대화해볼까?">
+                                        </div>
+
+                                    </div>
+
+                                    <input type="text" talk="talk" data-conv-question="이야기를 들려줘서 고마워! 이제 자유롭게 대화해볼까?">
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- service_area  -->
+<div class="service_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section_title text-center  wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
+                    <!-- <h3>Save your time to <br>
+                                using applab</h3> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="single_service text-center wow fadeInUp" data-wow-duration=".6s" data-wow-delay=".4s">
+                    <!-- <div class="thumb">
+                                <img src="img/icon/2.svg" alt="">
+                        </div>
+                        <h3>Manage team in <br>
+                                One Place</h3> -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="single_service text-center wow fadeInUp" data-wow-duration=".7s" data-wow-delay=".5s">
+                    <!-- <div class="thumb">
+                                        <img src="img/icon/1.svg" alt="">
+                                </div>
+                                <h3>All-powerful Pointing <br> 
+                                        has no control</h3> -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+
+                <div class="single_service text-center wow fadeInUp " data-wow-duration=".8s" data-wow-delay=".6s">
+                    <!-- <div class="thumb">
+                                        <img src="img/icon/3.svg" alt="">
+                                </div>
+                                <h3>Establish a solid online
+                                        presence</h3> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ service_area  -->
+<script>
+    jQuery(function ($) {
+        convForm = $('#chat').convform({ selectInputStyle: 'disable' });
+        // console.log(convForm);
+    });
+</script>
+{% endblock %}

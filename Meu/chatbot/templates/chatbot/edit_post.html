@@ -1,0 +1,81 @@
+{% extends 'chatbot/common.html' %}
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<script>
+    function doShow() {
+        $('#cardcon').hide();
+        $('#cardcon1').show();
+        $('#card1').text()
+    }
+    function doHide() {
+        $('#cardcon1').hide();
+        $('#cardcon').show();
+        $('#card2').text()
+    }
+    $(document).ready(function () {
+        $("#contents").click(function () {
+            $("#popup").fadeIn();
+        });
+        $("#exit").click(function () {
+            $("#popup").fadeOut();
+        });
+    });
+    function printWin() {
+        if (window.print) {
+            window.print();
+        }
+        else { alert('프린트 불가능'); }
+    }
+</script>
+<style>
+    input {
+        background-color: lightskyblue;
+        border: solid 3px lightpink;
+        border-radius: 10px;
+        color: white;
+        width: 40vw;
+        height: 36vh;
+        position: relative;
+        top: 30px;
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow:0 0 3px 2px pink;
+    }
+
+
+    label {
+        position: absolute;
+        top: 70px;
+    }
+</style>
+<div class="slider_area">
+    <div class="single_slider  d-flex align-items-center slider_bg_1">
+        <div class="mypage">
+            <div class="mypage-div3">
+            </div>
+            <div id="cardcon">
+                <div class="mypage-emo8"
+                    style="width: 50vw;height: 65vh;background-color: white;position: absolute; top: 20%;border-radius: 15px;text-align: center;">
+                    <div class="mypage-emo1">
+                        <div class="container">
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div>
+                                <div style="margin-bottom: 30px;font-size: 1.5vw; background-color: lightskyblue; color: white; border-radius: 5px; border: solid 3px lightpink;">하루 일과 </div> 
+                                <div>{{form.as_p}}</div>
+                                </div>
+                                <br>
+                                <a href="/mypage" class="update" style="margin-top: 3%;">back</a>
+                                <button type="submit" class="update" style="border:none; margin-top: 3%;">Edit</button>
+                            </form>
+                        </div>
+                        <br><br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

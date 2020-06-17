@@ -1,0 +1,66 @@
+{% extends 'chatbot/common.html' %}
+
+
+{% block content %}
+<div>		
+	<div class="single_slider  d-flex align-items-center slider_bg_1">
+		<div class="jumbotron signDiv"  style="display: contents;">
+			<div class="container text-center">
+				<form class="signForm" method="post" action="/signup/" name="signupForm"  style="
+				margin-top: 5%;
+				margin-left: 10%;
+				margin-right: 10%;
+				margin-bottom: 10%;">
+					{% csrf_token %}
+					<br><br><br>
+					<h2 style="color: black;">회원가입</h2>
+					<br></br>
+
+
+					<div class="form-group">
+						<label for="user_id" style="color: aliceblue;">아이디</label> <input type="text" class="form-control" id="user_id" name="user_id" placeholder="id">
+						<div class="check_box" id="name_check"></div>
+					</div>
+
+					<div class="form-group">
+						<label for="user_pw" style="color: aliceblue;">비밀번호</label> <input type="password" class="form-control" id="user_pw"
+							name="user_pw" placeholder="password" onkeypress="caps_lock(event)">
+
+						<p id="capslock"
+							style="position: relative; border: 2px solid #003b83; width: 300px; bottom: 0px; display: none">
+							&nbsp;<b>CapsLock</b> 키가 눌려있습니다.&nbsp;
+						</p>
+						<div class="check_box" id="pwd_check"></div>
+					</div>
+
+					<div class="form-group">
+						<label for="user_pw2" style="color: aliceblue;">비밀번호 확인</label> <input type="password" class="form-control" id="user_pw2"
+							name="user_pw2" placeholder="Checking PWD" onkeypress="caps_lock(event)">
+
+						<p id="capslock"
+							style="position: relative; border: 2px solid #003b83; width: 300px; bottom: 0px; display: none">
+							&nbsp;<b>CapsLock</b> 키가 눌려있습니다.&nbsp;
+						</p>
+						<div class="check_box" id="pwd_check"></div>
+					</div>
+
+					<div class="form-group">
+						<label for="email" style="color: aliceblue;">이메일</label> <input type="text" class="form-control" id="email" name="email" placeholder="E-mail">
+						<div class="check_box" id="email_check"></div>
+					</div>
+
+					<div class="form-group">
+						<label for="name" style="color: aliceblue;">닉네임</label> <input type="text" class="form-control" id="nick_name" name="nick_name"  placeholder="nick_name">
+						<div class="check_box" id="name_check"></div>
+					</div>
+
+					<!-- <button type="submit" class="btn button btn-block" id="signup">가입하기</button> -->
+					<button type="submit" class="btn btn-primary btn-block" id="signup">가입하기</button>
+					<!-- <button type="submit" class="btn btn-primary btn-block" id="signup" style="background-color: #42B3FA; border: #42B3FA;">가입하기</button> -->
+				</form>
+				
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

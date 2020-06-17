@@ -1,0 +1,92 @@
+{% extends 'chatbot/common_chat.html' %}
+{% block content %}
+<div class="single_slider  d-flex align-items-center slider_bg_1" style="background-size: 100% 100%;">
+    <img src="/static/chatbot/img/cat1.png" style="position: absolute; bottom: 0px; right: 0%;">
+    <section id="demo" style="position: static;">
+        <div class="vertical-align">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 col-xs-offset-0">
+                        <div class="img-div" style=" margin-top: 50%;">
+                            <div class="img-div2"><img src="/static/chatbot/img/head.png" width="45rem" height="45rem">
+                            </div>
+                            <div class="img-div3"><img src="/static/chatbot/img/logo1.png" width="70rem" height="45rem">
+                            </div>
+                            <div class="img-button"><button onclick="window.location.reload()"
+                                    style="background-color: transparent; border: none;">
+                                    <img src="/static/chatbot/img/door4.png" width="35rem" height="35rem"></button>
+                            </div>
+                        </div>
+                        <div class="card no-border">
+                            <div id="chat" class="conv-form-wrapper">
+                                <form action="" method="get" class="hidden"><!-- onsubmit="return false"-->
+
+                                    <input type="text" data-conv-question="오늘 하루를 되돌아보는 시간을 가져볼까?"
+                                        data-no-answer="true">
+                                    <input type="text" name="answer" data-conv-question="지금 기분은 어때?">
+                                    <input type="text" name="answer" data-conv-question="오늘 하루를 한 마디로 표현한다면?">
+                                    <input type="text" name="answer" data-conv-question="오늘하루 일과를 일기로 기록해보자!">
+
+                                    <input type="text" data-conv-question="만나서 반가웠어! 다음에 또찾아줘!(아무키나 입력해주세요.)">      
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!-- service_area  -->
+<div class="service_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section_title text-center  wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
+                    <!-- <h3>Save your time to <br>
+                        using applab</h3> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="single_service text-center wow fadeInUp" data-wow-duration=".6s" data-wow-delay=".4s">
+                    <!-- <div class="thumb">
+                        <img src="img/icon/2.svg" alt="">
+                    </div>
+                    <h3>Manage team in <br>
+                        One Place</h3> -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="single_service text-center wow fadeInUp" data-wow-duration=".7s" data-wow-delay=".5s">
+                    <!-- <div class="thumb">
+                        <img src="img/icon/1.svg" alt="">
+                    </div>
+                    <h3>All-powerful Pointing <br>
+                        has no control</h3> -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+
+                <div class="single_service text-center wow fadeInUp " data-wow-duration=".8s" data-wow-delay=".6s">
+                    <!-- <div class="thumb">
+                        <img src="img/icon/3.svg" alt="">
+                    </div>
+                    <h3>Establish a solid online
+                        presence</h3> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ service_area  -->
+<script>
+    jQuery(function ($) {
+        convForm = $('#chat').convform({ selectInputStyle: 'disable' });
+        // console.log(convForm);
+    });
+</script>
+{% endblock %}

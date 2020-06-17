@@ -1,0 +1,131 @@
+{% extends 'chatbot/common.html' %}
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<script>
+	function doShow() {
+		$('#cardcon').hide();
+		$('#cardcon1').show();
+		$('#card1').text()
+	}
+	function doHide() {
+		$('#cardcon1').hide();
+		$('#cardcon').show();
+		$('#card2').text()
+	}
+	$(document).ready(function () {
+		$("#contents").click(function () {
+			$("#popup").fadeIn();
+		});
+		$("#exit").click(function () {
+			$("#popup").fadeOut();
+		});
+	});
+	function printWin() {
+		if (window.print) {
+			window.print();
+		}
+		else { alert('프린트 불가능'); }
+	}
+</script>
+<div class="slider_area">
+	<div class="single_slider  d-flex align-items-center slider_bg_1">
+		<div class="mypage">
+			<div class="mypage-div3">
+				<button class="mypage-btn" id="card1" onclick="javascripts:doHide()"
+					style="border-top-left-radius: 15px;">상담카드 결과</button>
+				<button class="mypage-btn" id="card2" onclick="javascripts:doShow()"
+					style="border-top-right-radius: 15px;">감정 일기</button>
+				<!-- <button class="mypage-btn">커플 상담카드</button> -->
+			</div>
+			<div id="cardcon">
+				<div style="width: 50vw; height: 10vh; background-color: white">
+					<div class="container" style="margin-left: 5%;">
+						<div class="row">
+							<div style="-webkit-box-flex: 0; -ms-flex: 0 0 50%; flex: 0 0 90%; max-width: 90%;">
+								<h3 class="progress-title" style="margin-top: 10px;">진행률</h3>
+								<div class="progress orange">
+									<div class="progress-bar" style="width: {{progress}}%; background: cornflowerblue;">
+										<div class="progress-value">{{progress}}%</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mypage-div" style="overflow: auto;">
+					<div class="container">
+						<div class="slider_text">
+							<div class="mypage-div2" style="position: relative;">
+								{% for answer in answers %}
+								<div>
+									<div style="float: left;"><img src="/static/chatbot/img/head.png" width="50px"
+											height="50px"
+											style="position: relative; margin-bottom:5%; margin-left: 8px; ">
+									</div>
+									<div class="mypage-q">{{answer.choosequestion}}</div>
+								</div>
+								<div>
+									<div class="mypage-a">{{answer.useranswer}}</div><br>
+								</div>
+								{%endfor%}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="video_service_btn wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".1s">
+					<a href="/chat" class="boxed-btn3">MEU</a>
+				</div>
+			</div>
+			<div id="cardcon1" style="display: none;">
+				<div class="mypage-emo"
+					style="width: 50vw; height: 65vh; background-color: white;   overflow: auto; border-bottom: solid 15px white;">
+					<div class="mypage-emo1">
+						{% for diary in diarys %}
+						<!-- <div style="width: 500px; height: 500px; background-color: blanchedalmond;"> -->
+						{% if diary.question == '0' %}
+						<div class="mypage-emo2">{{diary.day}}</div>
+						<div style="width: 12vw;height: 4vh;background-color: transparent; display: inline-block;">
+							<div class="mypage-emo3">나의 기분</div>
+							<div class="mypage-emo4">{{diary.useranswer}}</div>
+						</div>
+						{% elif diary.question == '1' %}
+						<div
+							style="width: 20vw;height: 4vh;background-color: transparent; position: absolute;display: inline-block;">
+							<div class="mypage-emo5">한마디로 표현하면?</div>
+							<div class="mypage-emo6">{{diary.useranswer}}</div>
+						</div>
+						{% else %}
+						<div class="mypage-emo7">{{diary.useranswer}}</div><br>
+						<!-- <a href="{% url 'delete' diary.id %}" class="boxed-btn3">Delete</a> -->
+						<div style="
+                        position: relative;
+                        left: 91%;
+                        width: 30px;
+                        height: 30px;
+                        clear: both;
+                        top: 10px;
+                    ">
+							<a href="{% url 'edit' diary.id %}" class="update">Edit</a>
+						</div>
+						<br><br>
+						{% endif %}
+						{%endfor%}
+					</div>
+				</div>
+				<div>
+					<div class="video_service_btn wow fadeInLeft" data-wow-duration="1s" id="contents"
+						style="float: left;">
+						<a class="boxed-btn3">My Cloud</a>
+					</div>
+					<div id="popup" class="popup1">
+						<img src="/static/chatbot/img/wordcloud/diary_{{request.session.user_id}}.png" style="position: relative; width: 34vw; left: 7%;">
+						<div id="exit" class="popup2">Close</div>
+					</div>
+					<div> <input type="button" id="print1" class="video_service_btn wow fadeInLeft boxed-btn3"
+							data-wow-duration="1s" value="print" onclick="printWin()"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
