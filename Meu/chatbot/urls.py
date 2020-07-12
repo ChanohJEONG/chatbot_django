@@ -17,4 +17,7 @@ urlpatterns = [
     path('chat/conversation/',views.conversation, name='chat_conversation'),
     path('chat2/conversation/',views.conversation, name='conversation'),
     path('chat3/conversation_2/',views.conversation_2, name='conversation_2'),
+    path('explain_model/',views.explain_model, name='explain_model'),
+    path('explain_web/',views.explain_web, name='explain_web'),
+    path('about_us/',views.about_us, name='about_us'),
 ]

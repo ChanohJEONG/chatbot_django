@@ -2,24 +2,65 @@
 
 {% block content%}
 
+<style>
+    * {
+        font-family: 'Gamja Flower', cursive;
+    }
+
+
+
+    .font {
+        font-family: 'Gamja Flower', cursive;
+    }
+</style>
+
+
 <!-- slider_area_start -->
-<div class="slider_area">
-    <div class="single_slider  d-flex align-items-center slider_bg_1">
+<div class="slider_area" style="width: 100%; height: 100%; background-color: cornflowerblue;">
+    <!-- <div class="single_slider  d-flex align-items-center slider_bg_1"> -->
+    <div class="single_slider  d-flex align-items-center ">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-7 col-md-6">
-                    <div class="slider_text ">
-                        <h3 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s" >AI 챗봇과 대화해보세요! <br>
-                            with Mulab</h3>
-                        <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".1s">MEU로부터 공감과 위로를 받아보세요!</p>
-                        <div class="video_service_btn wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".1s">
-                            <a href="/chat" class="boxed-btn3">MEU</a>
+                    <div class="slider_text">
+
+                        <div style="width: 500px; height: 500px;" class="wow fadeInLeft" data-wow-duration="1s">
+                            <h1 style="color:white; font-size: 42px; font-family: 'Gamja Flower', cursive;">삼성 멀티캠퍼스<br>
+                                딥러닝기반 AI 엔지니어링</h1><br>
+                            <h4 style="color: white; font-size: 38px; font-family: 'Gamja Flower', cursive;">자연어처리 기반 AI
+                                챗봇 MeU</h4>
+                            <h5 style="color: white; font-size: 20px; font-family: 'Gamja Flower', cursive;"> &ensp;
+                                2019.11.29 ~ 2020.06.19 (1000 hours)</h5>
+                            <img src="/static/chatbot/img/cat.png" data-wow-duration="1s" width="350px" height="350px"
+                                style="position:absolute; ">
+
+
+
+
+                            <!-- <img src="/static/chatbot/img/certi.png"  data-wow-duration="1s" width="500px" height="85%" style="filter:drop-shadow(8px 15px 55px black); position:absolute; top: 30%; "> -->
+
+
+                        </div>
+                        <div style="width: 330px; height: 70px; background-color: #F8D070; padding:10px; text-align: center; border-top-right-radius: 15px; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; margin-left: 5%; position: absolute; top: 90%;"
+                            class="video_service_btn wow fadeInLeft">
+                            <div class="wow fadeInLeft" data-wow-duration="1s">
+                                <h6 style="color: gray; font-size: 17px; line-height: 1.5; font-weight: bold;">안녕? 나는 심리
+                                    상담 챗봇 미유야! <br>힘들고 친구가 필요할 때 나를 찾아줘!</h6>
+                            </div>
+                        </div>
+                        <div class="video_service_btn wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".1s"
+                            style="position: absolute; top: 120%;">
+                            <a href="/chat" class="boxed-btn3"
+                                style="font-family: 'Gamja Flower', cursive; font-size: 20px; font-weight: bold;">MEU</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-5 col-md-6">
-                    <div class="phone_thumb wow fadeInDown" data-wow-duration="1.1s" data-wow-delay=".2s">
-                        <img src="/static/chatbot/img/ilstrator/phone.png" alt="">
+                    <div class="phone_thumb wow fadeInDown" data-wow-duration="1.1s">
+                        <div style="width: 500px; height:600px;" class="wow fadeInLeft" data-wow-duration="1s"><img
+                                src="/static/chatbot/img/chat2.png" width="500px" height="600px"
+                                style="filter:drop-shadow(8px 15px 55px black); bottom: 5%; position: absolute;"></div>
+                        <!-- <img src="/static/chatbot/img/pppp.png" alt="" style="width: 115%; height: 800px; margin-bottom: 25%; filter: drop-shadow(1px 1px 20px black);" > -->
                     </div>
                 </div>
             </div>
@@ -34,8 +75,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="section_title text-center  wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
-                    <h3>친절하고 귀여운 동물 <br>
-                            Meu와 Bert</h3>
+                    <h3 class="font">About Us</h3>
                 </div>
             </div>
         </div>
@@ -43,34 +83,84 @@
             <div class="col-lg-4 col-md-4">
                 <div class="single_service text-center wow fadeInUp" data-wow-duration=".6s" data-wow-delay=".4s">
                     <div>
-                        <img src="/static/chatbot/img/head.png" width="300rem" height="300rem">
+                        <img src="/static/chatbot/img/kang2.png" width="300rem" height="300rem">
                     </div>
-                    <h3>본인을 되돌아볼 수 있는<br>
-                            심리검사</h3>
+                    <h3 class="font">강 규 현(Leader)<br></h3>
+                    <h4 class="font">프로젝트 기획 <br> 언어 모델 학습 <br>Bert모델 구현<br></h4>
+                    <h3><a href="https://mindcompass.github.io/">mindcompass.github.io</a></h3>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4">
-                    <div class="single_service text-center wow fadeInUp" data-wow-duration=".7s" data-wow-delay=".5s">
-                            <div>
-                                <img src="/static/chatbot/img/head.png" width="300rem" height="300rem">
-                            </div>
-                            <h3>간단히 하루를 기록하는 <br> 
-                                    일상 일기</h3>
-                        </div>
+                <div class="single_service text-center wow fadeInUp" data-wow-duration=".7s" data-wow-delay=".5s">
+                    <div>
+                        <img src="/static/chatbot/img/gwang.png" width="300rem" height="300rem">
+                    </div>
+                    <h3 class="font">김 광 현<br></h3>
+                    <h4 class="font">프로젝트 기획 <br> 프론트 앤드 <br> 웹 디자인 <br></h4>
+                    <h3><a href="https://gwanghyeonkim7.github.io/">gwanghyeonkim7.github.io</a></h3>
+                </div>
             </div>
             <div class="col-lg-4 col-md-4">
 
-                        <div class="single_service text-center wow fadeInUp " data-wow-duration=".8s" data-wow-delay=".6s">
-                            <div>
-                                <img src="/static/chatbot/img/Bert.png" width="300rem" height="300rem">
-                            </div>
-                            <h3>트와이스 광팬!
-                                    Bert</h3>
-                        </div>
+                <div class="single_service text-center wow fadeInUp " data-wow-duration=".8s" data-wow-delay=".6s">
+                    <div>
+                        <img src="/static/chatbot/img/hee.png" width="300rem" height="300rem">
+                    </div>
+                    <h3 class="font">김 희 준<br></h3>
+                    <h4 class="font">언어 모델 학습 <br> 모델 평가 <br> Attention모델 구현 <br></h4>
+                    <h3><a href="https://heejun1942.github.io/">heejun1942.github.io</a></h3>
+                </div>
             </div>
+            <div class="col-lg-4 col-md-4" style="margin-left: 17%;">
+
+                <div class="single_service text-center wow fadeInUp " data-wow-duration=".8s" data-wow-delay=".6s">
+                    <div>
+                        <img src="/static/chatbot/img/chan2.png" width="300rem" height="300rem">
+                    </div>
+                    <h3 class="font">정 찬 오<br></h3>
+                    <h4 class="font">웹서버(Django) 구현 <br> 프론트 앤드 <br> Transformer모델 구현 <br></h4>
+                    <h3><a href="http://chanohjeong.github.io">chanohjeong.github.io</a></h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+
+                <div class="single_service text-center wow fadeInUp " data-wow-duration=".8s" data-wow-delay=".6s">
+                    <div>
+                        <img src="/static/chatbot/img/jo.png" width="300rem" height="300rem">
+                    </div>
+                    <h3 class="font">조 민 재<br></h3>
+                    <h4 class="font">데이터 전처리 <br> 데이터 수집 <br> 모델 평가 <br></h4>
+                    <h3><a href="https://cho-mj15.github.io/">cho-mj15.github.io</a></h3>
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 </div>
+
+
+<div class="service_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section_title text-center  wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
+                    <h3 class="font">For Us</h3>
+                </div>
+            </div>
+            <div>
+                <img src="/static/chatbot/img/certi.png" width="300rem" height="300rem">
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
 <!--/ service_area  -->
 
 {% endblock%}

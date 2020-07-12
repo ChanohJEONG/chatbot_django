@@ -346,3 +346,112 @@
     background-color: palevioletred;
     color: white;
 }
+
+/* skills css */
+
+#skills-container {
+    margin-left: 5%;
+    width: 90%;
+    background-color: rgba( 255, 255, 255, 0.6);
+    padding: 2rem 2rem;
+    border-radius: 15px;
+    margin-bottom: 3em;
+}
+
+#skills-container img {
+    width: 100%;
+    border-radius: 15px;
+    margin: 1.4rem 0 3.4em;
+}
+
+#skills-container th {
+    background-color: #FEB856;
+}
+
+#skills-container th:hover {
+    background-color: rgb(214, 165, 31);
+}
+
+#skills-container td:hover {
+    background-color: lightblue;
+}
+
+#skills-container table {
+    width: 100%;
+    text-align: center;
+    margin: 1em 0;
+}
+
+.simple {
+    font-style: italic;
+    font-size: large;
+    margin-top: 1.12rem;
+}
+
+#skills-container2 {
+    margin-left: 5%;
+    width: 90%;
+    /* background-color: rgba( 255, 255, 255, 0.6 ); */
+    background: ghostwhite;
+    padding: 3rem 3rem;
+    border-radius: 15px;
+    margin-bottom: 3em;
+    line-height: 1.7em;
+}
+
+#skills-container2 h2 {
+    margin: 1.2em 0 0;
+    font-weight: 600;
+}
+
+.pdf {
+    width: 100%;
+    border-radius: 15px;
+    margin: 1.4rem 0 3.4em;
+}
+
+.text-center {
+    text-align: center;
+    margin: 1.2rem 0 2.5em;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.radius {
+    border-radius: 15px;
+}
+
+#skills-container {
+    width: 90%;
+    margin-left: 5%;
+    background: ghostwhite;
+    padding: 3rem 3rem;
+    border-radius: 15px;
+    margin-bottom: 3em;
+    line-height: 1.7em;
+}
+
+#skills-container h2 {
+    margin: 1.2em 0 0;
+    font-weight: 600;
+}
+
+.table th {
+    text-align: center;
+    padding: 0 0.3em;
+    border-color: black;
+    font-weight: 500;
+}
+
+.table td {
+    border-color: black;
+    text-align: center;
+}
+
+.simple {
+    font-style: italic;
+    font-weight: bolder;
+    margin-top: 0.8em;
+}

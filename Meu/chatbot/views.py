@@ -9,7 +9,7 @@ from django.utils import timezone
 from chatbot.forms import *
 from django.utils.datastructures import MultiValueDictKeyError
 from datetime import date, time, datetime, timedelta
-from chatbot.wordcloud_meu import *
+# from chatbot.wordcloud_meu import *
 
 
 tmp = ""
@@ -98,8 +98,12 @@ def mypage(request):  # my pqge
     
     # print(myList)
 
-    wordcloud(myList, member.user_id)
-    
+    # try:
+    #     # 5005는 transformer, 5007은 Seq2SeqAttention, 5010은 word cloud
+    #     api = requests.get('http://127.0.0.1:5010/'+myList+'&'+member_id, params=request.GET)#70.12.113.194
+    # except MultiValueDictKeyError:
+    #     api = "API 요청에 실패하였습니다."
+    #     print("API 요청이 실패하였습니다.")
 
     context = {'answers': answers,  # 로그인한 사용자의 답변Data mypage.html에 전달
                'progress': "{0:.2f}".format(len(answers)/60*100), # 진행률 mypage.html에 전달
@@ -250,7 +254,7 @@ def conversation(request):
     
     try:
         # 5005는 transformer, 5007은 Seq2SeqAttention
-        api = requests.get('http://70.12.113.194:5007/'+text, params=request.GET)
+        api = requests.get('http://127.0.0.1:5005/'+text, params=request.GET)#70.12.113.194
     except MultiValueDictKeyError:
         api = "API 요청에 실패하였습니다."
         print("API 요청이 실패하였습니다.")
@@ -274,7 +278,7 @@ def conversation(request):
 def conversation_2(request):
     try:
         text = request.GET['answerObject']  # WEB상에서 사용자가 질문에 대답한 Answer값
-        r = requests.get('http://70.12.113.194:5006/'+text,
+        r = requests.get('http://70.12.113.194:5006/'+text, #70.12.113.194
                          params=request.GET)  # BERT API 요청
     except MultiValueDictKeyError:
         text = False
@@ -303,3 +307,22 @@ def edit(request, diary_id):
     else:
         form = Diary_Post()
         return render(request, 'chatbot/edit_post.html',{'form':form})
+
+
+def explain_model(request):  # 메인 화면
+    return render(
+        request,
+        'chatbot/explain_model.html',
+        {})
+
+def explain_web(request):  # 메인 화면
+    return render(
+        request,
+        'chatbot/explain_web.html',
+        {})
+
+def about_us(request):  # 메인 화면
+    return render(
+        request,
+        'chatbot/about_us.html',
+        {})

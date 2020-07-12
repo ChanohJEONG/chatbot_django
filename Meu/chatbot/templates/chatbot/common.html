@@ -25,14 +25,11 @@
     <link rel="stylesheet" href="/static/chatbot/css/slicknav.css">
     <link rel="stylesheet" href="/static/chatbot/css/mystyle.css">
     <link rel="stylesheet" href="/static/chatbot/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
 <body>
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
     <!-- header-start -->
     <header>
         <div class="header-area ">
@@ -51,19 +48,26 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a class="active" href="/">home</a></li>
+                                        <li><a href="/chat">chatbot&nbsp;<i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="/chat">MEU</a></li>
+                                                <li><a href="/chat2">상담카드</a></li>
+                                                <li><a href="/chat2_2">개인일기</a></li>
+                                                <li><a href="/chat3">BERT</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/explain_model">skills&nbsp;<i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="/explain_model">자연어 처리</a></li>
+                                                <li><a href="/explain_web">웹 관련</a></li>
+                                            </ul>
+                                        </li>
                                         {% if request.session.user_id %}
                                         <li><a href="/mypage">Mypage</a></li>
-                                        <li><a href="/signout">LogOut</a></li>
                                         {% else %}
                                         <li><a href="/signin">Login</a></li>
                                         {% endif %}
-                                        <li><a href="/chat">MEU<i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="/chat2">상담카드</a></li>
-                                                <li><a href="/chat2_2">개인일기</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="/chat3">BERT</a></li>
+                                        <li><a href="/about_us">about us</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -155,8 +159,8 @@
                             <ul>
                                 <li><a href="#">Pricing</a></li>
                                 <li><a href="#">Features</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="https://github.com/ChanohJEONG/chatbot_django">github</a></li>
+                                <li><a href="https://github.com/ChanohJEONG/chatbot_django">Contact</a></li>
                             </ul>
                         </div>
                     </div>

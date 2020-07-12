@@ -76,19 +76,26 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a class="active" href="/">home</a></li>
-                                        {% if request.session.user_id %}
-                                        <li><a href="/mypage">Mypage</a></li>
-                                        <li><a href="/signout">LogOut</a></li>
-                                        {% else %}
-                                        <li><a href="/signin">Login</a></li>
-                                        {%endif%}
-                                        <li><a href="/chat">MEU<i class="ti-angle-down"></i></a>
+                                        <li><a href="/chat">chatbot&nbsp;<i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
+                                                <li><a href="/chat">MEU</a></li>
                                                 <li><a href="/chat2">상담카드</a></li>
                                                 <li><a href="/chat2_2">개인일기</a></li>
+                                                <li><a href="/chat3">BERT</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="/chat3">BERT</a></li>
+                                        <li><a href="/explain_model">skills&nbsp;<i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="/explain_model">자연어 처리</a></li>
+                                                <li><a href="/explain_web">웹 관련</a></li>
+                                            </ul>
+                                        </li>
+                                        {% if request.session.user_id %}
+                                        <li><a href="/mypage">Mypage</a></li>
+                                        {% else %}
+                                        <li><a href="/signin">Login</a></li>
+                                        {% endif %}
+                                        <li><a href="/about_us">about us</a></li>
                                     </ul>
                                 </nav>
                             </div>

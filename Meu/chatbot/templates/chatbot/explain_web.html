@@ -1,0 +1,123 @@
+{% extends 'chatbot/common.html' %}
+{% block content %}
+<!-- slider_area_start -->
+<div class="slider_area">
+    <div class="d-flex align-items-center" style="background-attachment: fixed; background-color: slategray;">
+        <div class="container" style="margin-top:150px;">
+            <div class="row align-items-center">
+                <div style="width:100%;">
+                    <div id="skills-container" class="slider_text">
+                        <h1 style="font-weight: 600;">WEB 관련 기술 설명</h1>
+                        <h2>1. 웹 전체 개요</h2>
+                        <hr>
+                        <div>
+                            중앙 서버는 Django Framework를 사용했습니다. 자연어처리 전용 웹서버(Flask)를 따로 구축한것이 특징이며 Django에서 직접 통신합니다.
+                            Database는 MySQL을 사용했고 Django와 연동합니다. Chatbot 관련 웹 구현은 jQuery, WEB과 Server간 통신은 AJAX를
+                            활용했습니다.
+                            DB내역을 불러오고 출력하는 과정은 모두 Django에서 제공하는 ORM과 Templates 을 사용했습니다.
+                        </div>
+                        <!-- <img src="/static/chatbot/img/skills_web/개요.png"> -->
+                        <div class="text-center">
+                            <img class="shadow" style="width: 80%;" src="/static/chatbot/img/skills_web/개요.png">
+                        </div>
+                        <br>
+                        <h2>2. DATABASE 개요</h2>
+                        <hr>
+                        <div>
+                            총 5가지 테이블을 활용했습니다. 로그인관련 정보를 저장하는 Member, 60가지 질문 내역이 저장되어 있는 Question, 이에대한 사용자 답변이 저장되는
+                            Answer, 각 사용자별 감정일기 내용을 저장하는 Diary_answer, 추후에 자연어처리 자료로 사용하기 위해 Log를 남기는 Chat_data가 있습니다.
+                            <br>
+                            <table class="table" border="2" style="margin:auto;margin: 1.2em 0 2em;">
+                                <tr>
+                                    <th>Member</th>
+                                    <th>Question</th>
+                                    <th>Answer</th>
+                                    <th>Diary_Answer</th>
+                                    <th>Chat_data</th>
+                                </tr>
+                                <tr>
+                                    <td>로그인 관련</td>
+                                    <td>60가지 질문 내역</td>
+                                    <td>60가지 질문에 대한 사용자 답변</td>
+                                    <td>감정일기 내역</td>
+                                    <td>일상대화 Log 기록</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- <img src="/static/chatbot/img/skills_web/데이터베이스개요.png"> -->
+                        <div class="text-center">
+                            <img class="shadow" style="width: 90%;" src="/static/chatbot/img/skills_web/데이터베이스개요.png">
+                        </div>
+                        <br>
+                        <h2>3. Meu 개요</h2>
+                        <hr>
+                        <div>
+                            사용자가 채팅창을 통해 하고싶은 말을 입력하면 AJAX 통신을 통해 Django에 해당 Message가 전달됩니다. 이 후 Django의 conversation
+                            def에서
+                            Flask 함수에 해당 Message를 전달하고 이에 대한 자연어처리 응답을 받게 됩니다. 기록을 남기기 위해 Djanog에서 제공하는 ORM 을 활용하여 DB를
+                            저장 하고
+                            다시 AJAX 통신의 응답 값을 WEB에 전달 하면 출력하는 구조 입니다.
+                            <div class="simple">WEB 사용자 입력 ➜ Django 자연어 처리 요청 ➜ Flask API 응답 ➜ Django DB 저장 및 web 전달 ➜
+                                WEB 출력</div>
+                        </div>
+                        <!-- <img src="/static/chatbot/img/skills_web/Meu.png"> -->
+                        <div class="text-center">
+                            <img class="radius" style="width: 100%;" src="/static/chatbot/img/skills_web/Meu.png">
+                        </div>
+                        <br>
+                        <h2>4. BERT 개요</h2>
+                        <hr>
+                        <div>
+                            사용자가 트와이스 관련 궁금한 질문 사항을 입력하면 AJAX 통신을 통해 Django에 Message가 전달됩니다. 이 후 Django의 convesation2
+                            def에서 Flask 함수에
+                            해당 Message를 전달하고 이에 대한 BERT 모델의 자연어처리 응답을 받게 됩니다. 따로 기록할 필요가 없기때문에 DB저장은 하지 않고 바로 WEB에 응답값을
+                            보내고
+                            화면에 출력합니다.
+                            <div class="simple">WEB 사용자 입력 ➜ Django 자연어 처리 요청 ➜ Flask 응답 ➜ Django web 전달 ➜ WEB 출력</div>
+                        </div>
+                        <!-- <img src="/static/chatbot/img/skills_web/Bert.png"> -->
+                        <div class="text-center">
+                            <img class="radius" style="width: 100%;" src="/static/chatbot/img/skills_web/Bert.png">
+                        </div>
+                        <br>
+                        <h2>5. 60가지 질문 기능 개요</h2>
+                        <hr>
+                        <div>
+                            최초 채팅 창에 접속 했을때 나오는 인사말이 이어지는 동안 chat2 def에서 몇가지 작업과 AJAX 비동기 통신이 일어납니다. 60가지 질문내역을 DB로부터
+                            불러올때
+                            이전에 사용자가 대답했던 Answer 값은 제외하도록 질의합니다. 조회한 질문 내역을 WEB에 전달하여 출력하고 이중 사용자가 질문 선택 후 응답 한 Message를
+                            Django에 전달하면
+                            ORM명령어를 활용하여 DB에 저장합니다.
+                            <div class="simple">Django 사용자가 대답하지 않도록 question DB 조회 ➜ WEB 카드 출력 및 사용자 응답 ➜ Django DB 저장
+                            </div>
+                        </div>
+                        <!-- <img src="/static/chatbot/img/skills_web/60가지.png"> -->
+                        <div class="text-center">
+                            <img class="radius" style="width: 100%;" src="/static/chatbot/img/skills_web/60가지.png">
+                        </div>
+                        <br>
+                        <h2>6. 감정일기 기능 개요</h2>
+                        <hr>
+                        <div>
+                            감정일기는 간단한 구조입니다. 사용자가 입력한 내역을 DB에 저장하는 기능만 있습니다.
+                            <div class="simple">WEB 사용자 입력 ➜ Django DB 저장</div>
+                        </div>
+                        <!-- <img src="/static/chatbot/img/skills_web/감정일기.png"> -->
+                        <div class="text-center">
+                            <img class="radius" style="width: 100%;" src="/static/chatbot/img/skills_web/감정일기.png">
+                        </div>
+                        <br>
+                        <h2>7. 사용 기술</h2>
+                        <hr>
+                        <!-- <img src="/static/chatbot/img/skills_web/사용기술.png"> -->
+                        <div class="text-center">
+                            <img class="shadow" style="width: 80%;" src="/static/chatbot/img/skills_web/사용기술.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider_area_end -->
+{% endblock %}

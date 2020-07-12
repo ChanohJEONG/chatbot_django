@@ -33,7 +33,7 @@
                                     <select name="multi[]" data-conv-question="어떤 이야기를 하고 싶어?">
                                         <option value="연애">연애</option>
                                         <option value="취업">취업</option>
-                                        <option value="친구">친구</option>
+                                        <option value="일상대화">일상대화</option>
                                     </select>
 
                                     <div data-conv-fork="multi[]">
@@ -113,21 +113,14 @@
 
                                         </div>
 
-                                        <div data-conv-case="친구">
-                                            <input type="text" data-conv-question="[친구]에 대해서 이야기 해보자!"
-                                                data-no-answer="true">
-                                            <input type="text"
-                                                data-conv-question="{{member.nick_name}}는 친구랑 무슨 고민이 있어?">
+                                        <div data-conv-case="일상대화">
+                                            <input type="text" data-conv-question="자유롭게 이야기 해보자!" data-no-answer="true">
 
-                                            <input type="text" data-conv-question="그랬구나" data-no-answer="true">
-
-                                            <input type="text" talk="talk"
-                                                data-conv-question="이야기를 들려줘서 고마워! 이제 자유롭게 대화해볼까?">
                                         </div>
 
                                     </div>
 
-                                    <input type="text" talk="talk" data-conv-question="이야기를 들려줘서 고마워! 이제 자유롭게 대화해볼까?">
+                                    <input type="text" talk="talk" data-conv-question="이제 하고 싶은 이야기를 해봐!">
 
 
                                 </form>
